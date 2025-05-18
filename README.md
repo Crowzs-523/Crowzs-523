@@ -1,0 +1,88 @@
+# Boom-suprise
+Hehehe sorry broo.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hadiah Meledak</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      color: white;
+    }
+    .gift-box {
+      width: 150px;
+      height: 150px;
+      background: red;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: gold;
+      top: 65px;
+    }
+    .gift-box::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 20px;
+      background: gold;
+      left: 65px;
+    }
+    .explode {
+      animation: explode 0.6s forwards;
+    }
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+    #message {
+      display: none;
+      font-size: 20px;
+      text-align: center;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="gift-box" id="giftBox">
+  Yoo!, Jang b lebeh<br>Jang error tuh hp_laptop.
+</div>
+
+<div id="message">
+  <strong>Warning!!!</strong><br>
+  Get away from your phone/laptop!!
+</div>
+
+<script>
+  const box = document.getElementById('giftBox');
+  const message = document.getElementById('message');
+
+  box.addEventListener('click', () => {
+    box.classList.add('explode');
+    setTimeout(() => {
+      box.style.display = 'none';
+      message.style.display = 'block';
+    }, 600);
+  });
+</script>
+
+</body>
+</html>
